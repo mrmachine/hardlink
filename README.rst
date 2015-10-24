@@ -1,11 +1,10 @@
 Overview
 ========
 
-This package provides a ``hardlink`` module and command line script that will
-copy a file or directory using hard links.
+This package provides a ``hardlink`` module and command line script that copies
+files and merges directories using hard links.
 
-Why? Because OS X doesn't support ``cp -lR``, and Python is my favourite
-scripting language.
+Why? Because OS X doesn't support ``cp -lR``.
 
 Installation
 ============
