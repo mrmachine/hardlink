@@ -40,14 +40,3 @@ Via the module::
     import hardlink
     link = hardlink.Command(dry_run=False, force=True)
     link(src, dst)
-
-How It Works
-============
-
-Symbolic links in ``src`` are followed.
-
-If ``dry_run=True``, no files will actually be linked and no directories will
-be created, but logging is unaffected.
-
-If ``force=True``, existing files and symbolic links are replaced. Otherwise a
-warning is logged. Existing directories are always merged.
