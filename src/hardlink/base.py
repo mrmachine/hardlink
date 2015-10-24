@@ -155,32 +155,34 @@ class Command(object):
 def main():
     # Parse arguments.
     parser = argparse.ArgumentParser(
-        description='Recursively hard link a file or directory. If the source '
-                    'and destination are both directories, the two will be '
-                    'merged. Directory and file symbolic links in the '
-                    'destination will be replaced with directories or hard '
-                    'links.',
+        description='Copy files and merge directories using hard links.',
     )
-    parser.add_argument('src', help='source file or directory')
-    parser.add_argument('dst', help='destination file or directory')
+    parser.add_argument(
+        'src',
+        help='Source file or directory. Follow symbolic links.',
+    )
+    parser.add_argument(
+        'dst',
+        help='Destination file or directory. Merge existing directories.',
+    )
     parser.add_argument(
         '-d',
         '--dry-run',
         action='store_true',
-        help='simulate results',
+        help='Do not link files or create directories. Only log operations.',
     )
     parser.add_argument(
         '-f',
         '--force',
         action='store_true',
-        help='overwrite existing files',
+        help='Replace existing files and symbolic links.',
     )
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
         '-q',
         '--quiet',
         action='store_true',
-        help='silence standard output',
+        help='Silence standard output.',
     )
     group.add_argument(
         '-v',
@@ -188,8 +190,7 @@ def main():
         action='count',
         default=0,
         dest='verbosity',
-        help='increase verbosity of standard output for each occurrence, e.g. '
-             '-vv',
+        help='Increase verbosity for each occurrence.',
     )
     args = parser.parse_args()
 

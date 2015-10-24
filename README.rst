@@ -22,21 +22,18 @@ Via the command line script::
     $ hardlink -h
     usage: hardlink [-h] [-d] [-f] [-q | -v] src dst
 
-    Recursively hard link a file or directory. If the source and destination are
-    both directories, the two will be merged. Directory and file symbolic links in
-    the destination will be replaced with directories or hard links.
+    Copy files and merge directories using hard links.
 
     positional arguments:
-      src            source file or directory
-      dst            destination file or directory
+      src            Source file or directory. Follow symbolic links.
+      dst            Destination file or directory. Merge existing directories.
 
     optional arguments:
       -h, --help     show this help message and exit
-      -d, --dry-run  simulate results
-      -f, --force    overwrite existing files
-      -q, --quiet    silence standard output
-      -v, --verbose  increase verbosity of standard output for each occurrence,
-                     e.g. -vv
+      -d, --dry-run  Do not link files or create directories. Only log operations.
+      -f, --force    Replace existing files and symbolic links.
+      -q, --quiet    Silence standard output.
+      -v, --verbose  Increase verbosity for each occurrence.
 
 Via the module::
 
