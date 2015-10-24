@@ -11,7 +11,7 @@ def read(*parts):
 if __name__ == '__main__':
     setuptools.setup(
         name='hardlink',
-        version='0.2.dev0',
+        version='0.2',
         description='Copy files and merge directories using hard links.',
         long_description=read('README.rst'),
         url='https://github.com/mrmachine/hardlink',
