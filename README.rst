@@ -1,20 +1,23 @@
-# Overview
+Overview
+========
 
-This package provides a `hardlink` module and command line script that will
+This package provides a ``hardlink`` module and command line script that will
 copy a file or directory using hard links.
 
-Why? Because OS X doesn't support `cp -lR`, and Python is my favourite
+Why? Because OS X doesn't support ``cp -lR``, and Python is my favourite
 scripting language.
 
-# Installation
+Installation
+============
 
-Latest code direct from the repository:
+Latest code direct from the repository::
 
     $ pip install hardlink
 
-# Usage
+Usage
+=====
 
-Via the command line script:
+Via the command line script::
 
     $ hardlink -h
     usage: hardlink [-h] [-d] [-f] [-q | -v] src dst
@@ -35,18 +38,19 @@ Via the command line script:
       -v, --verbose  increase verbosity of standard output for each occurrence,
                      e.g. -vv
 
-Via the module:
+Via the module::
 
     import hardlink
     link = hardlink.Command(dry_run=False, force=True)
     link(src, dst)
 
-# How It Works
+How It Works
+============
 
-Symbolic links in `src` are followed.
+Symbolic links in ``src`` are followed.
 
-If `dry_run=True`, no files will actually be linked and no directories will be
-created, but logging is unaffected.
+If ``dry_run=True``, no files will actually be linked and no directories will
+be created, but logging is unaffected.
 
-If `force=True`, existing files and symbolic links are replaced. Otherwise a
+If ``force=True``, existing files and symbolic links are replaced. Otherwise a
 warning is logged. Existing directories are always merged.
